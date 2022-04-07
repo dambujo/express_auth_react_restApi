@@ -12,6 +12,9 @@ app.use(cors(corsOptions));
 app.use(express.json());
 // parse requests of content-type - application/x-www-form-urlencoded
 app.use(express.urlencoded({ extended: true }));
+// Routes
+require('./routers/auth')(app);
+require('./routers/user')(app);
 // simple route
 app.get('/', (req, res) => {
   res.json({
