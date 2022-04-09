@@ -9,15 +9,15 @@ module.exports = function (app) {
     );
     next();
   });
-  app.get('/api/test/all', controller.allAccess);
-  app.get('/api/test/user', [authJwt.verifyToken], controller.userBoard);
+  app.get('/api/autha/all', controller.allAccess);
+  app.get('/api/autha/user', [authJwt.verifyToken], controller.userBoard);
   app.get(
-    '/api/test/mod',
+    '/api/autha/mod',
     [authJwt.verifyToken, authJwt.isModerator],
     controller.moderatorBoard,
   );
   app.get(
-    '/api/test/admin',
+    '/api/autha/admin',
     [authJwt.verifyToken, authJwt.isAdmin],
     controller.adminBoard,
   );
