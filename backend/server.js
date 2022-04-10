@@ -13,8 +13,8 @@ app.use(express.json());
 // parse requests of content-type - application/x-www-form-urlencoded
 app.use(express.urlencoded({ extended: true }));
 // Routes
-require('../routers/auth')(app);
-require('../routers/user')(app);
+require('./routers/auth')(app);
+require('./routers/user')(app);
 // simple route
 app.get('/', (req, res) => {
   res.json({
@@ -29,7 +29,7 @@ app.listen(PORT, () => {
   console.log(`The Server is Up on port ${PORT}.`);
 });
 
-const db = require('../models');
+const db = require('./models');
 const Role = db.role;
 
 function initial() {
